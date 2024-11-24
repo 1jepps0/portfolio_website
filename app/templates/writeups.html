@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+
+    <div>
+        <h1>Writeups</h1>
+        <hr></hr>
+    </div>
+
+    </div>
+
+    
+    {% for i in writeups %}
+        <div class='center'>
+
+                <button class="writeups-button">
+                    <a href='{% url 'writeup' i.name %}' class='writeups-link'>
+                    <h1 class="writeup-name">
+                        {{i.name}}
+                    </h1>
+            <a/>
+                </button>
+
+        </div>
+    {% endfor %}
+
+
+
+{% endblock content %}
+

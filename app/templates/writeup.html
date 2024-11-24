@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+
+    <div>
+        <h1>Challenge</h1>
+        <hr></hr>
+    </div>
+    <div class="center">
+ <div class="challenge-info">
+            <h2>
+                {{name}}
+            </h2>
+            <h4>
+                Competetion: {{competetion}}<br>
+                Challenge Author: {{author}}<br>
+                Tags: {{tags}}<br>
+            </h4>
+            <h2>
+            </h2>
+            <p>
+                {{description}}
+                <br><br> Hints <br>
+                {{hints}}
+            </p>
+      </div>
+    </div>
+
+    <h1>
+        Solution
+        <hr></hr>
+    </h1>
+
+    <p>
+    {{body_text}}
+    </p>
+
+       
+    </div>
+
+
+    
+
+
+{% endblock content %}
+
