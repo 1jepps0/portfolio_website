@@ -2,31 +2,46 @@
 {% load static %}
 
 {% block content %}
-
     <div class="container">
-
-    <div>
-        <h1>Challenge</h1>
-        <hr></hr>
-    </div>
     <div class="center">
- <div class="challenge-info">
+         <div class="challenge-info">
             <h2>
                 {{name}}
             </h2>
-            <h4>
-                Competetion: {{competetion}}<br>
-                Challenge Author: {{author}}<br>
-                Tags: {{tags}}<br>
-            </h4>
-            <h2>
-            </h2>
-            <p>
-                {{description}}
-                <br><br> Hints <br>
+            <div class="challenge-meta">
+
+                <div class="meta-component">
+                    <h4>Competetion</h4>
+                    <i>{{competetion}}</i>
+                    <br>
+                </div>
+
+                <div class="meta-component">
+                    <h4>Challenge Author</h4> 
+                    <i>{{author}}</i>
+                    <br>
+                </div>
+
+                <div class="meta-component">
+                    <h4>Tags</h4> 
+                    <i>{{tags}}</i>
+                    <br>
+                </div>
+
+            </div>
+
+            <div class="description">
+                <h4>Description</h4>
+                <p>
+                    {{description}}
+                <br>
+                <br>
+                <h4> Hints </h4>
                 {{hints}}
-            </p>
-      </div>
+                </p>
+            </div>
+
+        </div>
     </div>
 
     <h1>
@@ -34,16 +49,13 @@
         <hr></hr>
     </h1>
 
-    <p>
-    {{body_text}}
-    </p>
+    <md-block class="line-numbers">
+    {{markdown_body}}
+    
+    </md-block>
 
        
     </div>
-
-
-    
-
 
 {% endblock content %}
 

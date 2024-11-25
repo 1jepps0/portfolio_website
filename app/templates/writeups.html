@@ -4,30 +4,45 @@
 {% block content %}
 
     <div class="container">
-
-    <div>
-        <h1>Writeups</h1>
-        <hr></hr>
-    </div>
-
-    </div>
-
-    
-    {% for i in writeups %}
-        <div class='center'>
-
-                <button class="writeups-button">
-                    <a href='{% url 'writeup' i.name %}' class='writeups-link'>
-                    <h1 class="writeup-name">
-                        {{i.name}}
-                    </h1>
-            <a/>
-                </button>
-
+        <div>
+            <h1>Writeups</h1>
+            <hr></hr>
         </div>
+    </div>
+
+    {% for comp in competetions %}
+
+        <h2 class="competetion-name">
+            {{comp}}
+        </h2>
+
+        {% for cat in categories %}
+            {% if {{forloop.counter}} == 1 and cat == comp %}
+                
+                
+
+            {% endif %}
+
+        {% endfor %}
+
+        {% for i in writeups %}
+            {% if i.competetion == comp  %}
+                <div class='center'>
+                    <button class="writeups-button">
+                        <a href='{% url 'writeup' i.name %}' class='writeups-link'>
+                            <h2 class="writeup-name">
+                                {{i.name}}
+                            </h2>
+                        <a/>
+                    </button>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+
     {% endfor %}
-
-
+    
+    
 
 {% endblock content %}
 

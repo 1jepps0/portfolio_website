@@ -4,16 +4,14 @@ from django.db import models
 
 class CtfWriteup(models.Model):
     name = models.CharField(max_length = 50)
+    category = models.CharField(max_length = 50)
     competetion = models.CharField(max_length = 50)
     point_count = models.IntegerField()
-    description = models.CharField(max_length = 500)
+    description = models.TextField()
     tags = models.CharField(max_length = 300)
     hints = models.CharField(max_length = 300)
 
     author = models.CharField(max_length = 50, blank = True, null = True)
-
-    body_text = models.CharField(max_length = 5000, default="")
-    code_snippets = models.CharField(max_length = 5000, default="")
-
+    markdown_body = models.TextField(default="")
     image = models.ImageField()
 
