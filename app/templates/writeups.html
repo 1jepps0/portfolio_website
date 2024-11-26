@@ -10,27 +10,39 @@
     </div>
 
     <div class="all-writeups">
-        {% for competition, categories in writeups.items %}
 
-            <h2 class="competetion-name"> {{ competition }}</h2>
+    <ul class="tree" >
+        {% for competition, categories in writeups.items %}
+    <li>
+        <h2> {{ competition }} </h2>
+            <ul class="comp-tree">
 
             {% for category, writeups in categories.items %}
 
-            <h3 class="category-name"> <i> {{ category }} </i> </h3>
+                <li>
 
-                    <div class="writeups">
-                {% for writeup in writeups %}
-                        <button class="writeups-button" >
-                            <a href='{% url 'writeup' writeup.name %}' class="writeups-link">
-                                <h2 class="writeup-name"> {{ writeup.name }} </h2>
+                    <h3><i> {{ category }}</i> </h3>
+                
+                    <ul class="button-list">
+                        {% for writeup in writeups %}
+                        <li>
+                            <div class="writeup-button">
+                            <a class="writeup-link" href='{% url 'writeup' writeup.name %}' >
+                                <h4>{{ writeup.name }}</h4>
+
                             </a>
-                        </button>
-                {% endfor %}
+                            </div>
+                        </li>
+                        {% endfor %}
 
-                    </div>
+                    </ul>
+
+                </li>
+
             {% endfor %}
-
+    </ul>
         {% endfor %}
+    </ul>
     </div>
   
 {% endblock content %}

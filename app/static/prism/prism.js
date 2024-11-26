@@ -2457,8 +2457,8 @@ Prism.languages.sql = {
             (function () {
               if (void 0 === e) {
                 var t = document.createElement("div");
-                (t.style.fontSize = "13px"),
-                  (t.style.lineHeight = "1.5"),
+                (t.style.fontSize = "300px"),
+                  (t.style.lineHeight = "5"),
                   (t.style.padding = "0"),
                   (t.style.border = "0"),
                   (t.innerHTML = "&nbsp;<br />&nbsp;"),

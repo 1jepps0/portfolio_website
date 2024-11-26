@@ -1,13 +1,12 @@
 * {
-  font-family: monospace;
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -72,44 +71,32 @@ hr {
 }
 .all-writeups {
     justify-content: center;
-    padding: 0rem 20% 0% 20%;
+    padding: 0rem 20% 0% 30%;
 
 }
-.writeups-button {
-  letter-spacing: 1px;
+
+.writeup-button {
   border: 2px solid #786BAD;
   border-radius: 20px;
-  width: 100%;
   background: #1d192e;
   text-align: center;
-
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 0px;
+  width: 60%;
+  margin-top: 20px;
   cursor: pointer;
-
   transition: 0.1s ease-in-out;
 }
 
-.writeups-button:hover {
+.writeup-button:hover {
   transition: 0.1s ease-in-out;
-  transform: translateX(20px);
+  transform: translateX(10px);
   background: #271e4c;
   border: 2px solid #ffff;
   color: RGBA(255, 255, 255, 1);
 }
 
-.competetion-name {
-  padding: 0rem 25%;
-}
-
-.category-name {
-  padding: 0rem 27%;
-  font-size: 20;
-}
-
-.writeups-link {
+.writeup-link {
   text-decoration: none;
+  font-size: 20px;
   color: RGBA(255, 255, 255, 0.7);
 }
 
@@ -161,5 +148,65 @@ hr {
   display: inline-block;
   margin: 20px 0px;
 }
+
+/* writeups tree */
+
+.tree {
+    --spacing: 30px;
+    --radius: 13px;
+}
+
+.tree li {
+  display: block;
+  position: relative;
+  padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
+}
+
+.tree ul {
+  margin-left: calc(var(--radius) - var(--spacing));
+  padding-left: 0;
+}
+
+.tree ul li {
+  border-left: 2px solid #778;
+}
+
+.tree ul li:last-child {
+  border-color: transparent;
+}
+
+.tree ul li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(var(--spacing) / -1);
+  left: -2px;
+  width: calc(var(--spacing) + 0px);
+  height: calc(var(--spacing) + 25px);
+  border: solid #778;
+  border-width: 0 0 2px 2px;
+}
+
+.comp-tree {
+    padding: 0px 0px 28px 0px;
+  padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
+
+}
+/*
+ * tree blocks at each node:
+
+.tree li::after,
+.tree summary::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(var(--spacing) / 1 - var(--radius) + 2px);
+  left: calc(var(--spacing) - var(--radius) + 8px );
+  width: calc(var(--radius) - 5px);
+  height: calc(var(--radius) - 5px);
+  border-radius: 0%;
+  background: #778;
+}
+*/
 
 
