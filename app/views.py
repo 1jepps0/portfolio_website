@@ -2,6 +2,7 @@ from django.shortcuts import render
 from app.models import *
 from collections import *
 from datetime import *
+from pathlib import Path
 
 # Create your views here.
 
@@ -41,15 +42,18 @@ def projects_view(request):
 def writeup_view(request, writeup_name):
     objects = CtfWriteup.objects.all()
     context = {}
-    attributes = ["name", "description", "competition", "point_count",
-                  "tags", "hints", "author", "markdown_body", "image"]
 
     for object in objects:
-        if writeup_name == object.name:
-            for attribute in attributes:
-                context[attribute] = getattr(object, attribute)
- 
+        if object.name == writeup_name:
 
+
+            text = ''
+            with object.markdown_body.open('r') as f:
+                text = f.read()
+
+            object.markdown_body = text
+            context["data"] = object
+   
     return render(request, "writeup.html", context)
 
 

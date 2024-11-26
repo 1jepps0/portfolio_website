@@ -6,25 +6,25 @@
     <div class="center">
          <div class="challenge-info">
             <h2>
-                {{name}}
+                {{data.name}}
             </h2>
             <div class="challenge-meta">
 
                 <div class="meta-component">
                     <h4>Competetion</h4>
-                    <i>{{competition}}</i>
+                    <i>{{data.competition}}</i>
                     <br>
                 </div>
 
                 <div class="meta-component">
                     <h4>Challenge Author</h4> 
-                    <i>{{author}}</i>
+                    <i>{{data.author}}</i>
                     <br>
                 </div>
 
                 <div class="meta-component">
                     <h4>Tags</h4> 
-                    <i>{{tags}}</i>
+                    <i>{{data.tags}}</i>
                     <br>
                 </div>
 
@@ -33,11 +33,11 @@
             <div class="description">
                 <h4>Description</h4>
                 <p>
-                    {{description}}
+                    {{data.description}}
                 <br>
                 <br>
                 <h4> Hints </h4>
-                {{hints}}
+                {{data.hints}}
                 </p>
             </div>
 
@@ -50,7 +50,7 @@
     </h1>
 
     <md-block class="line-numbers">
-        {{markdown_body}}
+        {{data.markdown_body}}
     </md-block>
 
        
