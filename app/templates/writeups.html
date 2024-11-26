@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-
     <div class="container">
         <div>
             <h1>Writeups</h1>
@@ -10,39 +9,29 @@
         </div>
     </div>
 
-    {% for comp in competetions %}
+    <div class="all-writeups">
+        {% for competition, categories in writeups.items %}
 
-        <h2 class="competetion-name">
-            {{comp}}
-        </h2>
+            <h2 class="competetion-name"> {{ competition }}</h2>
 
-        {% for cat in categories %}
-            {% if {{forloop.counter}} == 1 and cat == comp %}
-                
-                
+            {% for category, writeups in categories.items %}
 
-            {% endif %}
+            <h3 class="category-name"> <i> {{ category }} </i> </h3>
+
+                    <div class="writeups">
+                {% for writeup in writeups %}
+                        <button class="writeups-button" >
+                            <a href='{% url 'writeup' writeup.name %}' class="writeups-link">
+                                <h2 class="writeup-name"> {{ writeup.name }} </h2>
+                            </a>
+                        </button>
+                {% endfor %}
+
+                    </div>
+            {% endfor %}
 
         {% endfor %}
-
-        {% for i in writeups %}
-            {% if i.competetion == comp  %}
-                <div class='center'>
-                    <button class="writeups-button">
-                        <a href='{% url 'writeup' i.name %}' class='writeups-link'>
-                            <h2 class="writeup-name">
-                                {{i.name}}
-                            </h2>
-                        <a/>
-                    </button>
-                </div>
-            {% endif %}
-        {% endfor %}
-
-
-    {% endfor %}
-    
-    
-
+    </div>
+  
 {% endblock content %}
 

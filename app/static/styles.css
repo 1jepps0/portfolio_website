@@ -65,19 +65,27 @@ hr {
 }
 
 /* Button for selecting writeups */
+.writeups {
+    justify-content: center;
+    padding: 0rem 20%;
 
+}
+.all-writeups {
+    justify-content: center;
+    padding: 0rem 20% 0% 20%;
+
+}
 .writeups-button {
   letter-spacing: 1px;
   border: 2px solid #786BAD;
   border-radius: 20px;
-  width: 50%;
+  width: 100%;
   background: #1d192e;
   text-align: center;
 
-  padding: 4px 32px;
   display: inline-block;
   font-size: 16px;
-  margin: 10px 2px;
+  margin: 10px 0px;
   cursor: pointer;
 
   transition: 0.1s ease-in-out;
@@ -85,17 +93,19 @@ hr {
 
 .writeups-button:hover {
   transition: 0.1s ease-in-out;
-  padding: 2px 32px;
-
+  transform: translateX(20px);
   background: #271e4c;
   border: 2px solid #ffff;
-  width: 52%;
   color: RGBA(255, 255, 255, 1);
-  letter-spacing: 4px;
 }
 
 .competetion-name {
   padding: 0rem 25%;
+}
+
+.category-name {
+  padding: 0rem 27%;
+  font-size: 20;
 }
 
 .writeups-link {
@@ -151,6 +161,5 @@ hr {
   display: inline-block;
   margin: 20px 0px;
 }
-
 
 
