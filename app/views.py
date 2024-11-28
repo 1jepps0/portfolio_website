@@ -62,54 +62,19 @@ def writeup_view(request, writeup_name):
 
 class WriteupUploadAPIView(APIView):
     def post(self, request):
+        print("Request Data:", request.data)
+        print("Request Files:", request.FILES)
+
         serializer = CtfWriteupSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            print("Serializer is valid")
+            writeup = serializer.save()
             return Response(
                 {"message": "Writeup uploaded successfully!"},
                 status=status.HTTP_201_CREATED,
             )
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            print("Serializer errors:", serializer.errors)  # Print errors if not valid
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-def writeup_upload(request):
-    if request.method == "POST":          
-
-        try:
-            name = request.POST.get("name", "default_name")  
-            category = request.POST.get("category", "No Category")
-            competition = request.POST.get("competition", "Unknown")
-            point_count = request.POST.get("point_count", 0)
-            description = request.POST.get("description", "")
-            tags = request.POST.get("tags", "")
-            hints = request.POST.get("hints", "")
-            author = request.POST.get("author", "Unknown")
-            markdown_body = request.POST.get("markdown_body", "")
-
-            cur_date = datetime.now().strftime("%Y-%m-%d")
-
-            writeup = CtfWriteup.objects.create_writeup(
-                name=name,
-                category=category,
-                competition=competition,
-                point_count=point_count,
-                description=description,
-                tags=tags,
-                hints=hints,
-                date=cur_date,
-                author=author,
-                markdown_body=markdown_body,
-            )
-
-            context = {"message": "Writeup uploaded successfully!"}
-            return render(request, "upload_response.html", context)
-
-        except Exception as e:
-            context = {"message": e}
-            return render(request, "upload_response.html", context)
-
-
-
-    context = {"message": "Wrong method"}
-    return render(request, "upload_response.html", context)
 

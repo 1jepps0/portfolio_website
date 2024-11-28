@@ -1,7 +1,6 @@
 from django.db import models
 import datetime
 
-# Create your models here.
 class WriteupManager(models.Manager):
     def create_writeup(self, name, category, competition, point_count,
                        description, tags, hints, date, author, markdown_body):

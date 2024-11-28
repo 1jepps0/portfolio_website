@@ -22,6 +22,7 @@ from django.contrib.auth import views as auth_views
 from app.views import *
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('', home_view, name="home"),
 
@@ -31,7 +32,6 @@ urlpatterns = [
     path('contact', contact_view, name="contact"),
     path('projects', projects_view, name="projects"),
 
-    path('writeup_upload', writeup_upload, name="writeup_upload"),
     path("api/writeup-upload/", WriteupUploadAPIView.as_view(), name="writeup-upload"),
 
 ]
