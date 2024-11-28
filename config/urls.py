@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 from app.views import *
 
 urlpatterns = [
@@ -29,7 +30,12 @@ urlpatterns = [
 
     path('contact', contact_view, name="contact"),
     path('projects', projects_view, name="projects"),
+
+    path('writeup_upload', writeup_upload, name="writeup_upload"),
+    path("api/writeup-upload/", WriteupUploadAPIView.as_view(), name="writeup-upload"),
+
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

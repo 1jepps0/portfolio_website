@@ -1,6 +1,18 @@
 from django.db import models
+import datetime
 
 # Create your models here.
+class WriteupManager(models.Manager):
+    def create_writeup(self, name, category, competition, point_count,
+                       description, tags, hints, date, author, markdown_body):
+
+        CtfWriteup = self.create(name=name, category=category, competition=competition,
+                                 point_count=point_count, description=description,
+                                 tags=tags, hints=hints, date=date, author=author,
+                                 markdown_body=markdown_body)
+        return CtfWriteup
+
+
 
 class CtfWriteup(models.Model):
     name = models.CharField(max_length=50)
@@ -13,7 +25,9 @@ class CtfWriteup(models.Model):
     date = models.DateField()
 
     author = models.CharField(max_length=50, blank=True, null=True)
-    markdown_body = models.FileField(upload_to="writeups")
+    markdown_body = models.TextField()
+
+    objects = WriteupManager()
 
     def __str__(self):
         return self.name
@@ -25,3 +39,5 @@ class CtfImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.writeup.name}"
+
+
