@@ -2,14 +2,12 @@ from rest_framework import serializers
 from .models import CtfWriteup, CtfImage
 from datetime import datetime
 
-class CtfImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CtfImage
-        fields = ['image']
 
 class CtfWriteupSerializer(serializers.ModelSerializer):
-    date = serializers.DateField(default=datetime.now().strftime("%Y-%m-%d"))
-    images = CtfImageSerializer(many=True, write_only=True)  # Accept multiple images
+    images = serializers.ListField(
+        child=serializers.ImageField(),  # Handle multiple image uploads
+        required=False
+    )
 
     class Meta:
         model = CtfWriteup
@@ -26,15 +24,13 @@ class CtfWriteupSerializer(serializers.ModelSerializer):
             "date",
             "images"
         ]
-        
 
     def create(self, validated_data):
-        print("create")
         images_data = validated_data.pop('images', [])
-        writeup = CtfWriteup.objects.create_writeup(**validated_data)
+        writeup = CtfWriteup.objects.create(**validated_data)
 
-        for image_data in images_data:
-            CtfImage.objects.create(writeup=writeup, **image_data)
+        for image in images_data:
+            CtfImage.objects.create(writeup=writeup, image=image)
 
-        return writeup
+        return writeup 
 

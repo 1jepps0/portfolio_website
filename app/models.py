@@ -31,12 +31,9 @@ class CtfWriteup(models.Model):
     def __str__(self):
         return self.name
 
-
 class CtfImage(models.Model):
     writeup = models.ForeignKey(CtfWriteup, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to="writeup_images")
 
     def __str__(self):
         return f"Image for {self.writeup.name}"
-
-
