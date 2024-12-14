@@ -29,6 +29,8 @@ class CtfWriteupSerializer(serializers.ModelSerializer):
         images_data = validated_data.pop('images', [])
         writeup = CtfWriteup.objects.create(**validated_data)
 
+
+
         for image in images_data:
             CtfImage.objects.create(writeup=writeup, image=image)
 
