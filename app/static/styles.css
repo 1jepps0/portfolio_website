@@ -25,30 +25,68 @@ h4 {
   line-height: 0%;
 }
 
+/* navbar */
+
+nav a{
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -0.25em;
+  height: 2px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover::after{
+  width: 100%;
+  animation: pulse11 .5s; 
+  box-shadow: 0 0 0 1em transparent;
+}
+
 nav {
   font-size: 16px;
+  padding-top: .5%;
+  padding-bottom: .5%;
   text-align: center;
-  padding: 0.5rem 0;
   background: #1d192e;
-  border-bottom: 1px dashed #4a4c48;
+  border-bottom: 1px solid #4a4c48;
 }
 
 nav a {
   color: RGBA(255, 255, 255, 0.7);
-  margin: 0 1rem;
   text-decoration: none;
-  transition: 0.25s ease-in-out;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 8px;
+  position: relative;
 }
 
-nav a:hover {
-  color: RGBA(255, 255, 255, 1);
-  transition: 0.25s ease-in-out;
-  text-decoration: underline;
+nav a:hover{
+    color: #fff;
 }
+
+@keyframes pulse11 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 .5em transparent;
+  }
+}
+
+/* extra */
 
 hr {
   color: RGBA(255, 255, 255, 0);
-  border-bottom: 1px dashed #4a4c48;
+  border-bottom: 1px solid #4a4c48;
 }
 
 .center {
@@ -65,13 +103,9 @@ hr {
 
 /* Button for selecting writeups */
 .writeups {
-    justify-content: center;
-    padding: 0rem 20%;
 
 }
 .all-writeups {
-    justify-content: center;
-    padding: 0rem 20% 0% 30%;
 
 }
 
@@ -80,10 +114,13 @@ hr {
   border-radius: 20px;
   background: #1d192e;
   text-align: center;
-  width: 60%;
+  width: 100%;
   margin-top: 20px;
   cursor: pointer;
   transition: 0.1s ease-in-out;
+}
+
+.button-list {
 }
 
 .writeup-button:hover {
@@ -100,6 +137,55 @@ hr {
   color: RGBA(255, 255, 255, 0.7);
 }
 
+
+/* writeups tree */
+
+.tree {
+
+    margin-right: 35%;
+    margin-left: 30%;
+    justify-content: center;
+
+    --spacing: 30px;
+    --radius: 13px;
+}
+
+.tree li {
+  display: block;
+  position: relative;
+  padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
+}
+
+.tree ul {
+  margin-left: calc(var(--radius) - var(--spacing));
+  padding-left: 0;
+}
+
+.tree ul li {
+  border-left: 2px solid #778;
+}
+
+.tree ul li:last-child {
+  border-color: transparent;
+}
+
+.tree ul li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(var(--spacing) / -1);
+  left: -2px;
+  width: calc(var(--spacing) + 0px);
+  height: calc(var(--spacing) + 25px);
+  border: solid #778;
+  border-width: 0 0 2px 2px;
+}
+
+.comp-tree {
+    padding: 0px 0px 28px 0px;
+  padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
+
+}
 /* Challenge Information Card */
 
 .challenge-info {
@@ -147,50 +233,6 @@ hr {
 
   display: inline-block;
   margin: 20px 0px;
-}
-
-/* writeups tree */
-
-.tree {
-    --spacing: 30px;
-    --radius: 13px;
-}
-
-.tree li {
-  display: block;
-  position: relative;
-  padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
-}
-
-.tree ul {
-  margin-left: calc(var(--radius) - var(--spacing));
-  padding-left: 0;
-}
-
-.tree ul li {
-  border-left: 2px solid #778;
-}
-
-.tree ul li:last-child {
-  border-color: transparent;
-}
-
-.tree ul li::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: calc(var(--spacing) / -1);
-  left: -2px;
-  width: calc(var(--spacing) + 0px);
-  height: calc(var(--spacing) + 25px);
-  border: solid #778;
-  border-width: 0 0 2px 2px;
-}
-
-.comp-tree {
-    padding: 0px 0px 28px 0px;
-  padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
-
 }
 /*
  * tree blocks at each node:
