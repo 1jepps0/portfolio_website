@@ -2,24 +2,33 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
+    <div class="small-container">
 
     <div>
-        <h1> About </h1>
-        <hr></hr>
 
     </div>
 
-    <div>
-        <h2>Jacob Epps</h2>
-    </div>
+        <h1 class="low-line-height">I'm Jacob Epps,</h1>
 
         <p>
-            I am a Cybersecurity student at the University of South Carolina Aiken. 
-            My focus areas include reverse engineering, binary analysis, and penetration testing. 
-            I thrive on understanding how systems function deeply and aim to expand my expertise in Cybersecurity and technology.
-
+            A <b>Cybersecurity student</b> who thrives on understanding how things work.
         </p>
+
+              <p>
+             At the University of South Carolina Aiken, I'm pursuing a Bachelor's degree in Computer Science, concentrating in Cybersecurity. While attending,
+             I’ve been an active member of the university's Capture the Flag (CTF) team, where I’ve tackled a wide range of cybersecurity challenges.
+             You can find my write-ups for these challenges <a class="p-link" href="{% url "writeups" %}">here</a>.
+             Notably, I've helped secure our team 3rd place in Carolina Con 2024. Through my experience in cybersecurity and CTF competitions, 
+             I’ve developed a deep interest in reverse engineering, binary analysis, and penetration testing. These avenues allow me to leverage my understanding of low-level
+             programming languages to manipulate a program into unexpected behaviour.
+ 
+        </p>
+
+        <p>
+            Beyond competitions, I’ve also developed coding <a class="p-link" href="{% url "projects" %}">projects</a> that are both practical and personally meaningful,
+            focusing on solutions that improve my workflow or address real-world problems.
+        </p>
+
     <div>
         <h1> Skills </h1>
         <hr></hr>

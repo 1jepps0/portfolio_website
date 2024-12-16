@@ -17,9 +17,10 @@
 </head>
 <body>
     <header class="nav-header">
-    <a class="logo" href="/"><img src="/media/Logo.png" alt="logo"></a>
+    <a class="logo" href="{% url "home" %}"><img src="/media/Logo.png" alt="logo"></a>
     <nav>
         <ul class="nav_links">
+            <li><a class="link-text" href="{% url "home" %}">About</a></li>
             <li><a class="link-text" href="{% url "projects" %}">Projects</a></li>
             <li><a class="link-text" href="{% url "writeups" %}">CTF Writeups</a></li>
             <li><a class="link-text" href="{% url "contact" %}">Contact</a></li>
