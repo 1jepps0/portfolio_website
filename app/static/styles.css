@@ -31,8 +31,6 @@ b {
 .p-link{
     font-weight: 500;
     color: var(--color-light-accent);
-
-
 }
 
 
@@ -316,4 +314,90 @@ hr {
 }
 */
 
+/* about page */
+.icons{
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+    margin: 20px 20px 20px 20px;
 
+    --icon-padding: 4% 4% 4% 4%;
+    --icon-max-size: 20%;
+    --icon-max-size: 20%;
+
+}
+
+.java-icon{
+    transform: translateY(-5%);
+    padding: var(--icon-padding);
+    max-width: var(--icon-max-size);
+    max-height: var(--icon-max-size);
+}
+
+.c-icon{
+    transform: translateY(5%);
+    padding: var(--icon-padding);
+    max-width: var(--icon-max-size);
+    max-height: var(--icon-max-size);
+}
+
+.cpp-icon{
+    transform: translateY(-5%);
+    padding: var(--icon-padding);
+    max-width: var(--icon-max-size);
+    max-height: var(--icon-max-size);
+}
+
+.python-icon{
+    padding: var(--icon-padding);
+    max-width: var(--icon-max-size);
+    max-height: var(--icon-max-size);
+}
+
+.cards{
+
+}
+
+.skill-card{
+
+}
+
+.skill-card:hover{
+
+}
+
+.card-container{
+    
+    border: 1px solid var(--color-light-accent);
+    background-color: var(--color-main);
+    border-radius: 20px;
+    text-align: center;
+    color: var(--color-font);
+    margin: 20px 10px 10px 10px;
+
+    display: flex;
+
+}
+
+.card-image-ghidra{
+
+    width: 90%;
+    height: 100%;
+    padding: 5% 5% 5% 5%;
+
+}
+
+.card-image-wireshark{
+
+    width: 120%;
+    height: 100%;
+    padding: 12% 5% 5% 5%;
+
+}
+
+.card-text{
+
+    padding: 5% 5% 0% 5%;
+    margin-bottom: 5%;
+
+}
