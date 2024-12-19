@@ -31,6 +31,8 @@ b {
 .p-link{
     font-weight: 500;
     color: var(--color-light-accent);
+    text-decoration: underline;
+    text-decoration-style: dotted
 }
 
 
@@ -449,7 +451,7 @@ hr {
     border-radius: 20px;
     color: var(--color-font);
     display: flex;
-    margin-top:8%;
+    margin-top:6%;
 
 }
 
@@ -473,10 +475,7 @@ hr {
 
     transition: 0.1s ease-in-out;
     transform: translateY(-5px);
-    border: 2px solid var(--color-font);
-    color: RGBA(255, 255, 255, 1);
     background-color: var(--color-main);
-
     border-color: var(--color-light-accent);
 
 }
@@ -489,11 +488,11 @@ hr {
 .contact-form {
 
     margin: 2%;
-    margin-top: 8%;
+    margin-top: 4%;
 
 }
 
-.feedback-input {
+input, textarea{
 
     color:white;
     font-weight:300;
@@ -502,7 +501,7 @@ hr {
     line-height: 22px;
     transition: all 0.3s;
     padding: 2%;
-    margin-bottom: 15px;
+    margin-bottom: 2%;
     width:100%;
     box-sizing: border-box;
     outline:0;
@@ -510,19 +509,29 @@ hr {
     background-color: var(--color-dark-accent);
     border: 1px solid var(--color-light-accent2);
     color: var(--color-font);
+
 }
 
-.feedback-input:focus {
+
+
+input:focus, textarea:focus {
+
     background-color: var(--color-main);
     border:1px solid var(--color-light-accent); 
+
 }
 
-textarea {
+textarea{
 
   height: 200px;
   line-height: 150%;
   resize:vertical;
 
+}
+
+.error-input > input{
+    border-color: red;
+    margin: 0%;
 }
 
 [type="submit"] {
@@ -550,4 +559,18 @@ textarea {
     color: RGBA(255, 255, 255, 1);
 
     border-color: var(--color-light-accent);
+}
+
+.error-message > ul{
+
+    color: RGB(255, 0, 0);
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+
+}
+
+.field-label{
+    color: var(--color-font);
+    font-size: 15px;
 }

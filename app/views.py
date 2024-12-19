@@ -13,6 +13,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CtfWriteupSerializer
 
+from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from .forms import ContactForm 
+
 
 def home_view(request):
     return render(request, "home.html")
@@ -41,9 +45,6 @@ def writeups_view(request):
 
     return render(request, 'writeups.html', {'writeups': dict(sorted_organized_writeups)})
 
-def contact_view(request):
-    return render(request, "contact.html")
-
 def projects_view(request):
     return render(request, "projects.html")
  
@@ -63,20 +64,50 @@ def writeup_view(request, writeup_name):
 
 class WriteupUploadAPIView(APIView):
     def post(self, request):
+
         print("Request Data:", request.data)
         print("Request Files:", request.FILES)
 
         serializer = CtfWriteupSerializer(data=request.data)
+
         if serializer.is_valid():
+
             print("Serializer is valid")
             writeup = serializer.save()
             return Response(
                 {"message": "Writeup uploaded successfully!"},
                 status=status.HTTP_201_CREATED,
             )
+
         else:
-            print("Serializer errors:", serializer.errors)  # Print errors if not valid
+            print("Serializer errors:", serializer.errors)  
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+    
+def contact_view(request):
 
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+
+            name = form.cleaned_data["name"]
+            subject = form.cleaned_data["subject"]
+            message = form.cleaned_data["message"]
+            sender = form.cleaned_data["email"]
+            true_sender = "JacobEppsWebsiteForm@gmail.com"
+
+            recipients = ["1jepps10@gmail.com"]
+
+            full_message = f"Name: {name}\nSubject: {subject}\nSender Email: {sender}\n\nMessage:\n{message}"
+            full_subject = f"Form Message from {name} Subject: {subject}"
+
+            send_mail(full_subject, full_message, true_sender, recipients)
+
+            # return HttpResponseRedirect("/success")
+
+    else:
+        form = ContactForm()
+
+    return render(request, "contact.html", {"form": form})
