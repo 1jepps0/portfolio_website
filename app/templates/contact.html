@@ -2,21 +2,43 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
 
-        <div>
-            <h1> Contact </h1>
-            <hr></hr>
+    <div class="small-container">
+
+        <form class="contact-form">      
+            <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+            <input name="email" type="text" class="feedback-input" placeholder="Email" />
+            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+            <input type="submit" value="SUBMIT"/>
+        </form>
+
+        <div class="contact-container">
+
+            <a class="contact-link" href="https://github.com/1jepps0" target=”_blank” >
+                <button class="contact-group">
+                    <img class="contact-icon" src="/media/github.svg"> 
+                </button>
+            </a>
+
+            <a class="contact-link" href="https://www.linkedin.com/in/jacob-epps-26b416287/" target=”_blank” >
+                <button class="contact-group">
+                    <img class="contact-icon" src="/media/linkedin.svg">
+                </button>
+            </a>
+
+            <a class="contact-link" href="mailto:1jepps10@gmail.com">
+                <button class="contact-group">
+                    <img class="contact-icon" src="/media/email.svg">
+                </button>
+            </a>
 
         </div>
 
-        <div>
-            <p>
-            Email: 1jepps10@gmail.com
-            </p>
-        </div>
 
-    </div>
+
+</div>
+
+
 
 {% endblock content %}
 

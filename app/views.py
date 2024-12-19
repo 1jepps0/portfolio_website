@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from app.models import *
 from collections import *
 from datetime import *
@@ -12,6 +12,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CtfWriteupSerializer
+
 
 def home_view(request):
     return render(request, "home.html")
@@ -76,5 +77,6 @@ class WriteupUploadAPIView(APIView):
         else:
             print("Serializer errors:", serializer.errors)  # Print errors if not valid
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 

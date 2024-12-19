@@ -150,7 +150,7 @@ hr {
 }
 
 .small-container{
-  width: 40%;
+  width: 50%;
   margin: auto;
   overflow: hidden;
   padding: 2rem 0;
@@ -318,40 +318,35 @@ hr {
 .icons{
     display: flex;
     justify-content: center;
-    padding: 20px 20px 20px 20px;
-    margin: 20px 20px 20px 20px;
 
-    --icon-padding: 4% 4% 4% 4%;
-    --icon-max-size: 20%;
-    --icon-max-size: 20%;
+    --icon-padding: 4%;
+    --icon-max-size: 100%;
+    --icon-max-size: 100%;
 
 }
 
 .java-icon{
-    transform: translateY(-5%);
     padding: var(--icon-padding);
-    max-width: var(--icon-max-size);
-    max-height: var(--icon-max-size);
+    width: var(--icon-max-size);
+    height: var(--icon-max-size);
 }
 
 .c-icon{
-    transform: translateY(5%);
     padding: var(--icon-padding);
-    max-width: var(--icon-max-size);
-    max-height: var(--icon-max-size);
+    width: var(--icon-max-size);
+    height: var(--icon-max-size);
 }
 
 .cpp-icon{
-    transform: translateY(-5%);
     padding: var(--icon-padding);
-    max-width: var(--icon-max-size);
-    max-height: var(--icon-max-size);
+    width: 110%;
+    height: 110%;
 }
 
 .python-icon{
     padding: var(--icon-padding);
-    max-width: var(--icon-max-size);
-    max-height: var(--icon-max-size);
+    width: var(--icon-max-size);
+    height: var(--icon-max-size);
 }
 
 .cards{
@@ -371,33 +366,188 @@ hr {
     border: 1px solid var(--color-light-accent);
     background-color: var(--color-main);
     border-radius: 20px;
-    text-align: center;
     color: var(--color-font);
-    margin: 20px 10px 10px 10px;
+    margin: 5%;
+    padding: 4%;
 
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 
 }
 
 .card-image-ghidra{
 
-    width: 90%;
-    height: 100%;
-    padding: 5% 5% 5% 5%;
+    width: 50%; 
+    height: 50%;
+    padding-right: 4%;
+
 
 }
 
 .card-image-wireshark{
 
-    width: 120%;
-    height: 100%;
-    padding: 12% 5% 5% 5%;
+    width: 55%; 
+    height: 50%;
+    padding-right: 4%;
 
 }
 
-.card-text{
 
-    padding: 5% 5% 0% 5%;
-    margin-bottom: 5%;
+.card-image-burp{
 
+    width: 42%; 
+    height: 50%;
+    padding-right: 4%;
+
+}
+
+.card-image-hashcat{
+
+    width: 62%; 
+    height: 50%;
+    padding-right: 4%;
+
+}
+
+
+.top-padding{
+    padding-top: 2%;
+}
+
+.top-padding-small{
+    padding-top: 1%;
+}
+
+.title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.blurb{
+    transform: TranslateY(-10px);
+}
+
+.center-title{
+    margin-top: 5%;
+    text-align: center;
+}
+
+/* contact page */
+
+.contact-icon{
+
+    padding: var(--icon-padding);
+    width: 20%; 
+    height: 20%;
+
+}
+
+.contact-container{
+
+    border-radius: 20px;
+    color: var(--color-font);
+    display: flex;
+    margin-top:8%;
+
+}
+
+.contact-group{
+
+    background-color: var(--color-dark-accent);
+    border: 1px solid var(--color-light-accent2);
+    border-radius: 100px;
+    padding:3%;
+    margin: 7%;
+    padding-left: 0%;
+    padding-right: 0%;
+    color: var(--color-font);
+    cursor: pointer;
+
+    transition: 0.1s ease-in-out;
+
+}
+
+.contact-group:hover{
+
+    transition: 0.1s ease-in-out;
+    transform: translateY(-5px);
+    border: 2px solid var(--color-font);
+    color: RGBA(255, 255, 255, 1);
+    background-color: var(--color-main);
+
+    border-color: var(--color-light-accent);
+
+}
+
+.contact-link:link{
+    text-decoration: none;
+}
+
+
+.contact-form {
+
+    margin: 2%;
+    margin-top: 8%;
+
+}
+
+.feedback-input {
+
+    color:white;
+    font-weight:300;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    transition: all 0.3s;
+    padding: 2%;
+    margin-bottom: 15px;
+    width:100%;
+    box-sizing: border-box;
+    outline:0;
+
+    background-color: var(--color-dark-accent);
+    border: 1px solid var(--color-light-accent2);
+    color: var(--color-font);
+}
+
+.feedback-input:focus {
+    background-color: var(--color-main);
+    border:1px solid var(--color-light-accent); 
+}
+
+textarea {
+
+  height: 200px;
+  line-height: 150%;
+  resize:vertical;
+
+}
+
+[type="submit"] {
+
+    width: 100%;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:400;
+    padding: 3%;
+    background-color: var(--color-dark-accent);
+    border: 1px solid var(--color-light-accent2);
+    color: var(--color-font);
+
+}
+
+[type="submit"]:hover 
+{
+    transition: 0.1s ease-in-out;
+    background-color: var(--color-main);
+    color: RGBA(255, 255, 255, 1);
+
+    border-color: var(--color-light-accent);
 }
