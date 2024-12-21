@@ -683,6 +683,7 @@ textarea{
     align-items: center;
 
     transition: 0.2s ease-in-out;
+    text-decoration: none;
 
 }
 
@@ -711,8 +712,9 @@ textarea{
 }
 
 
-.project-link{
+.project-link:link{
     cursor: pointer;
+    text-decoration: none;
 }
 
 .project-desc{

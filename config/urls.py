@@ -34,7 +34,7 @@ urlpatterns = [
     path('success', success_view, name="success"),
 
     path('projects', projects_view, name="projects"),
-    path('projects/<project_name>', project_view, name="project"),
+    path('projects/portfolio_website', portfolio_website_view, name="project"),
 
     path("api/writeup-upload/", WriteupUploadAPIView.as_view(), name="writeup-upload"),
 

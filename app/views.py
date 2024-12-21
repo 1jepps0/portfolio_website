@@ -75,6 +75,9 @@ def writeups_view(request):
 
 def projects_view(request):
     return render(request, "projects.html")
+
+def portfolio_website_view(request):
+    return render(request, "portfolio_website.html")
  
 def writeup_view(request, writeup_name):
     objects = CtfWriteup.objects.all()
@@ -86,10 +89,7 @@ def writeup_view(request, writeup_name):
    
     return render(request, "writeup.html", context)
 
-def project_view(request, project_name):
-    context = {}
-   
-    return render(request, f"{project_name}.html", context)
+
 
 
 class WriteupUploadAPIView(APIView):
