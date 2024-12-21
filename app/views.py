@@ -24,14 +24,30 @@ def home_view(request):
 def writeups_view(request):
     writeups = CtfWriteup.objects.all()
 
+    # get unique categories to use for the filter
+    unique_cats = list({writeup.category for writeup in writeups})
+    competitions = list({writeup.competition for writeup in writeups})
+
+    # get selected comp based on filter
+    selected_competition = request.GET.get('competition-filter', 'all')
+    selected_category = request.GET.get('category-filter', 'all')
+
+    # Filter writeups based on the selected competition and category
+    if selected_competition != 'all':
+        writeups = writeups.filter(competition=selected_competition)
+    if selected_category != 'all':
+        writeups = writeups.filter(category=selected_category)
+
+    # organize writeups based on competition:category
     organized_writeups = defaultdict(lambda: defaultdict(list))
     for writeup in writeups:
         organized_writeups[writeup.competition][writeup.category].append(writeup)
 
-
+    # sort the writeups by date so the most recent ones appear on top
     sorted_organized_writeups = {
         competition: dict(categories)
         for competition, categories in sorted(
+
             organized_writeups.items(),
             key=lambda item: max(
                 (writeup.date for cat in item[1].values() for writeup in cat),
@@ -41,9 +57,21 @@ def writeups_view(request):
         )
     }
 
-    organized_writeups = {k: dict(v) for k, v in sorted_organized_writeups.items()}
+    
 
-    return render(request, 'writeups.html', {'writeups': dict(sorted_organized_writeups)})
+
+    # only give the competitions that have the selected category
+
+
+    context = {
+        'writeups': dict(sorted_organized_writeups),
+        'selected_competition': selected_competition,
+        'selected_category': selected_category,
+        'unique_categories': unique_cats,
+        'unique_competitions': competitions,
+    }
+
+    return render(request, 'writeups.html', context)
 
 def projects_view(request):
     return render(request, "projects.html")
@@ -54,12 +82,14 @@ def writeup_view(request, writeup_name):
 
     for object in objects:
         if object.name == writeup_name:
-
-
-
             context["data"] = object
    
     return render(request, "writeup.html", context)
+
+def project_view(request, project_name):
+    context = {}
+   
+    return render(request, f"{project_name}.html", context)
 
 
 class WriteupUploadAPIView(APIView):
@@ -105,9 +135,13 @@ def contact_view(request):
 
             send_mail(full_subject, full_message, true_sender, recipients)
 
-            # return HttpResponseRedirect("/success")
+            return HttpResponseRedirect("/success")
 
     else:
         form = ContactForm()
 
     return render(request, "contact.html", {"form": form})
+
+def success_view(request):
+    return render(request, "success.html")
+

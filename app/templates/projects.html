@@ -4,17 +4,20 @@
 {% block content %}
     <div class="small-container">
 
-        <div>
-            <h1> Projects </h1>
-            <hr></hr>
 
-        </div>
+        <a href='{% url 'project' project_name %}' class="project-link">
+            <div class="project-container">
 
-        <div>
-            <p>
-                applesauce
-            </p>
-        </div>
+                    <h1> Portfolio Website </h1>
+                    <img class="project-img" src="/media/website_screenshot.png" height=400 weight=400>
+                    <p class="project-desc">
+                        A Django website that includes an About, Projects, CTF Writeups, and Contact page. The CTF Writeups page recieves new writeups
+                        using a custom made Obsidian plugin that sends the MD file and all images along side the relevant challenge information. Additionally, The website includes
+                        a contact page that uses the Gmail SMTP service to automatically send emails from form submissions.
+                    </p>
+
+            </div>
+        </a>
 
     </div>
 

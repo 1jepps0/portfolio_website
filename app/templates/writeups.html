@@ -4,32 +4,39 @@
 {% block content %}
     <div class="small-container">
 
+        <form class="filters" method="get" >
 
-        <div class="filters">
-
-                <select class="drop-down" name="competition-filter" >
+                <select class="drop-down" name="competition-filter" onchange="this.form.submit()">
 
                     <option value="all" class="filter-element"> All Competitions </option>
-                    {% for competition, categories in writeups.items %}
 
-                    <option value={{competition}} class="filter-element"> {{competition}} </option>
-
+                    {% for competition in unique_competitions %}
+                        <option value="{{competition}}" class="filter-element" {% if selected_competition == competition %}selected{% endif %}>
+                            {{competition}}
+                        </option>
                     {% endfor %}
+
                 </select>
-            </div>
 
+                <select class="drop-down" name="category-filter" onchange="this.form.submit()">
 
+                    <option value="all" class="filter-element"> All Categories </option>
 
+                    {% for category in unique_categories %}
+                            <option value="{{category}}" class="filter-element" {% if selected_category == category %}selected{% endif %}>
+                                {{category}}
+                            </option>
+                    {% endfor %}
 
-
-
-
+                </select>
+        </form>
 
 
 
 
         <ul class="tree" >
             {% for competition, categories in writeups.items %}
+            {% if selected_competition == competition or selected_competition == "all" %}
         <li>
 
         <h2>{{ competition }}</h2>
@@ -38,31 +45,34 @@
 
             {% for category, writeups in categories.items %}
 
+            {% if category == selected_category or selected_category == "all" %}
                 <li>
 
-                    <h3><i> {{ category }}</i> </h3>
+                    <h3 class="category-title" ><i> {{ category }}</i> </h3>
                 
                     <ul class="button-list">
 
                         {% for writeup in writeups %}
                             <li>
-                                <div class="writeup-button">
-
                                     <a class="writeup-link" href='{% url 'writeup' writeup.name %}' >
-                                        <h4>{{ writeup.name }}</h4>
-                                    </a>
+                                <button class="writeup-button">
 
-                                </div>
+                                        <h4>{{ writeup.name }}</h4>
+
+                                </button>
+                                    </a>
                             </li>
                         {% endfor %}
 
                     </ul>
 
                 </li>
+                {% endif %}
 
             {% endfor %}
 
         </ul>
+        {% endif %}
             {% endfor %}
         </ul>
         </div>

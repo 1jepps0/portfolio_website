@@ -31,7 +31,10 @@ urlpatterns = [
     path('writeups/<writeup_name>', writeup_view, name="writeup"),
 
     path('contact', contact_view, name="contact"),
+    path('success', success_view, name="success"),
+
     path('projects', projects_view, name="projects"),
+    path('projects/<project_name>', project_view, name="project"),
 
     path("api/writeup-upload/", WriteupUploadAPIView.as_view(), name="writeup-upload"),
 
