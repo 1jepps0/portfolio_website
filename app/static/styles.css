@@ -721,4 +721,20 @@ textarea{
     margin: 2%;
 }
 
+/* portfolio project page */
+.language-icon{
 
+    width: 20%;
+    height: 20%;
+    padding: 2%;
+
+}
+
+.center-image{
+    display: grid;
+    align-items: center;
+    margin: auto;
+    border: 1px solid var(--color-light-accent);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
