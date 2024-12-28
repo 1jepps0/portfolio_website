@@ -730,7 +730,25 @@ textarea{
     margin: 2%;
 }
 
+.project-card-hr{
+    width: 100%;
+    border-color: var(--color-light-accent2);
+    transition: 0.2s ease-in-out;
+}
+
+.project-container:hover > hr{
+    border-color: var(--color-light-accent);
+    transition: 0.2s ease-in-out;
+}
+
+.project-card-image{
+    width: 10%;
+    height: 10%;
+    margin-top: 2%; 
+}
+
 /* portfolio project page */
+
 .language-icon{
 
     width: 20%;
@@ -749,3 +767,6 @@ textarea{
     width: 90%;
     height: 90%;
 }
+
+
+
