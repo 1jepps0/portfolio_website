@@ -17,6 +17,8 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from .forms import ContactForm 
 
+import ast
+
 
 def home_view(request):
     return render(request, "home.html")
@@ -85,8 +87,11 @@ def writeup_view(request, writeup_name):
 
     for object in objects:
         if object.name == writeup_name:
+            tag_list = ast.literal_eval(object.tags)
+            context["tags"] = tag_list
             context["data"] = object
    
+    print(context["tags"])
     return render(request, "writeup.html", context)
 
 

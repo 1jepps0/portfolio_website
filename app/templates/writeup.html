@@ -3,11 +3,19 @@
 
 {% block content %}
     <div class="small-container">
-    <div class="center">
          <div class="challenge-info">
-            <h2>
+            <h1>
                 {{data.name}}
-            </h2>
+            </h1>
+
+            <div class="project-card-tags">
+                {% for tag in tags %}
+                    <p class="project-card-tag">
+                        {{tag}}
+                    </p>
+                {% endfor %}
+            </div>
+            
             <div class="challenge-meta">
 
                 <div class="meta-component">
@@ -30,19 +38,17 @@
 
             </div>
 
+                <h1 >Challenge Description</h1>
             <div class="description">
-                <h4>Description</h4>
                 <p>
-                    {{data.description}}
-                <br>
+                    <span id="descriptionText">{{data.description}}</span>
+                </p>
                 <br>
                 <h4> Hints </h4>
                 {{data.hints}}
-                </p>
             </div>
 
         </div>
-    </div>
 
     <h1>
         Solution
@@ -54,7 +60,23 @@
     </md-block>
 
        
+
+
     </div>
 
-{% endblock content %}
 
+    <script>
+
+        function convertAndReplaceText(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            const regex = /\\n|\\r\\n|\\n\\r|\\r/g;
+            const convertedtext = text.replace(regex, '<br>');
+            element.innerHTML = convertedtext;
+            console.log(text);
+        }
+
+        convertAndReplaceText('descriptionText');
+    </script>
+
+{% endblock content %}
