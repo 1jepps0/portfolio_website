@@ -2,21 +2,78 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
 
-        <div>
-            <h1> Contact </h1>
-            <hr></hr>
+    <div class="small-container">
+
+    <!--
+        <form action="/contact" method="post" class="contact-form">      
+
+            <input name="name" type="text" class="feedback-input" value="{{ current_name }}" placeholder="Name"/>   
+            <input name="email" type="text" class="feedback-input" value="{{ current_email }}" placeholder="Email" />
+            <input name="subject" type="text" class="feedback-input" value="{{ current_subject }}" placeholder="Subject"/>
+            <textarea name="text" class="feedback-input" value="{{ current_message }}" placeholder="Message" ></textarea>
+            <input type="submit" value="SUBMIT"/>
+
+        </form>
+    --> 
+
+    <form action="/contact" method="post" class="contact-form">
+        
+        {% csrf_token %}
+
+        {% for field in form %}
+
+
+
+        {% if field.errors %}
+
+            <div class="error-input">
+                {{ field }}
+            </div>
+
+        {% else %}
+            {{field}}
+        {% endif %}
+
+        <div class="error-message">
+            {{ field.errors }}
+        </div>
+
+
+        {% endfor %}
+
+        <input type="submit" value="SUBMIT">
+
+    </form>
+
+       
+        <div class="contact-container">
+
+            <a class="contact-link" href="https://github.com/1jepps0" target=”_blank” >
+                <button class="contact-group">
+                    <img class="contact-icon" src="/media/github.svg"> 
+                </button>
+            </a>
+
+            <a class="contact-link" href="https://www.linkedin.com/in/jacob-epps-26b416287/" target=”_blank” >
+                <button class="contact-group">
+                    <img class="contact-icon" src="/media/linkedin.svg">
+                </button>
+            </a>
+
+            <a class="contact-link" href="mailto:1jepps10@gmail.com">
+                <button class="contact-group">
+                    <img class="contact-icon" src="/media/email.svg">
+                </button>
+            </a>
 
         </div>
 
-        <div>
-            <p>
-            Email: 1jepps10@gmail.com
-            </p>
-        </div>
 
-    </div>
+
+</div>
+
+
 
 {% endblock content %}
 

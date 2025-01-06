@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from django.shortcuts import redirect
 from app.views import *
 
 urlpatterns = [
@@ -30,9 +31,13 @@ urlpatterns = [
     path('writeups/<writeup_name>', writeup_view, name="writeup"),
 
     path('contact', contact_view, name="contact"),
+    path('success', success_view, name="success"),
+
     path('projects', projects_view, name="projects"),
+    path('projects/portfolio_website', portfolio_website_view, name="project"),
 
     path("api/writeup-upload/", WriteupUploadAPIView.as_view(), name="writeup-upload"),
+
 
 ]
 

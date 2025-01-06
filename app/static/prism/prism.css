@@ -1,7 +1,7 @@
 /* PrismJS 1.29.0
 https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+armasm+bash+batch+brainfuck+c+csharp+cpp+go+java+lua+markup-templating+php+powershell+python+ruby+rust+shell-session+sql+zig&plugins=line-highlight+line-numbers+highlight-keywords+keep-markup+command-line+unescaped-markup+normalize-whitespace+toolbar+copy-to-clipboard+download-button+treeview */
-code[class*="language-"],
-pre[class*="language-"] {
+!code[class*="language-"],
+!pre[class*="language-"] {
   color: #ccc;
   background: 0 0;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -27,7 +27,7 @@ pre[class*="language-"] {
 }
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #18161F;
+  background: #151517;
 }
 :not(pre) > code[class*="language-"] {
   padding: 0.1em;

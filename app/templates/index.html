@@ -5,22 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob Epps - Home</title>
+
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="{% static 'prism/prism.css' %}">
     <script type="module" src="{% static 'js/md-block.js' %}"></script>
     <script src="{% static 'prism/prism.js' %}"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+   
 </head>
 <body>
+    <header class="nav-header">
+    <a class="logo" href="{% url "home" %}"><img src="/media/Logo.png" alt="logo"></a>
     <nav>
-        <a href="{% url "home" %}">About</a>
-        <a href="{% url "projects" %}">Projects</a>
-        <a href="{% url "contact" %}">Contact</a>
-        <a href="{% url "writeups" %}">CTF Writeups</a>
+        <ul class="nav_links">
+            <li><a class="link-text" href="{% url "home" %}">About</a></li>
+            <li><a class="link-text" href="{% url "projects" %}">Projects</a></li>
+            <li><a class="link-text" href="{% url "writeups" %}">CTF Writeups</a></li>
+            <li><a class="link-text" href="{% url "contact" %}">Contact</a></li>
+        </ul>
     </nav>
+    </header>
 
     {% block content %}
 
     {% endblock content %}
+
 
 </body>
 </html>

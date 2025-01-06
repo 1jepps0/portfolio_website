@@ -2,19 +2,77 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
+    <div class="small-container">
 
-        <div>
-            <h1> Projects </h1>
-            <hr></hr>
 
-        </div>
+        <a href='https://github.com/1jepps0/Python-LSB-Stego/' class="project-link" target="_blank">
+            <div class="project-container">
 
-        <div>
-            <p>
-                applesauce
-            </p>
-        </div>
+                    <h1> Image LSB Stegonography Tool </h1>
+
+                    <div class="project-card-tags">
+                        <p class="project-card-tag"> Stegonography </p>
+                        <p class="project-card-tag"> Programming </p>
+                        <p class="project-card-tag"> Pillow </p>
+                    </div>
+
+                    <hr class="project-card-hr" >
+                    
+                    <p class="project-desc">
+                        A (LSB) Least Signifigant Bit Stegonography tool built with Python. Uses the LSB method to encode images with a particular message. It works by changing
+                        the last bit in each color value of the image. When decoded, the program will collect all of the last bits of each color value and construct the
+                        hidden message.
+                    </p>
+
+                    <hr class="project-card-hr">
+
+                    <div class="project-card-icons">
+                        <img src="media/python.svg" class="project-card-image" height=50 width=50>
+                    </div>
+
+            </div>
+        </a>
+
+        <a href='https://github.com/1jepps0/packet_sniffer/' class="project-link" target="_blank">
+            <div class="project-container">
+
+                    <h1> Packet Sniffer</h1>
+
+                    <div class="project-card-tags">
+                        <p class="project-card-tag"> Networking </p>
+                        <p class="project-card-tag"> Programming </p>
+                        <p class="project-card-tag"> Libpcap </p>
+                    </div>
+
+                    <hr class="project-card-hr">
+                    
+                    <p class="project-desc">
+                        A basic CLI packet sniffer implemented in C that uses the libpcap library. Provides information about each packet including Ethernet header,
+                        source and destination MAC adresses, IP header information, and TCP-specific details. CLI arguments allow packet filtering by port and
+                        changing the device to capture packets from.
+                    </p>
+
+                    <hr class="project-card-hr">
+
+                    <div class="project-card-icons">
+                        <img src="media/c.svg" class="project-card-image" height=50 width=50>
+                    </div>
+
+            </div>
+        </a>
+
+        <a href='/projects/portfolio_website' class="project-link">
+            <div class="project-container">
+
+                    <h1> Portfolio Website </h1>
+                    <p class="project-desc">
+                        A Django website that includes an About, Projects, CTF Writeups, and Contact page. The CTF Writeups page recieves new writeups
+                        using a custom made Obsidian plugin that sends the MD file and all images along side the relevant challenge information. Additionally, The website includes
+                        a contact page that uses the Gmail SMTP service to automatically send emails from form submissions.
+                    </p>
+
+            </div>
+        </a>
 
     </div>
 

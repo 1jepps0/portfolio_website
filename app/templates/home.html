@@ -2,26 +2,95 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
+<div class="top-padding-small"> </div>
+    <div class="small-container">
 
-    <div>
-        <h1> About </h1>
-        <hr></hr>
 
-    </div>
+        <div class="title">
+            <h1>
+                I'm Jacob Epps,
+                <p class="blurb">
+                <i> A <b>Cybersecurity student</b> who thrives on understanding how things work. </i>
+                </p>
+            </h1>
+        </div>
 
-    <div>
-        <h2>Jacob Epps</h2>
-    </div>
-
-        <p>
-            I am a Cybersecurity student at the University of South Carolina Aiken. 
-            My focus areas include reverse engineering, binary analysis, and penetration testing. 
-            I thrive on understanding how systems function deeply and aim to expand my expertise in Cybersecurity and technology.
+        <h1 class="top-padding"> About Me </h1>
+        <hr>
+         <p class="top-padding">
+             At the University of South Carolina Aiken, I'm pursuing a Bachelor's degree in Computer Science, concentrating in Cybersecurity. While attending,
+             I’ve been an active member of the university's Capture the Flag (CTF) team, where I’ve tackled a wide range of cybersecurity challenges.
+             You can find my write-ups for these challenges <a class="p-link" href="{% url "writeups" %}">here</a>.
+             Notably, I've helped secure our team 3rd place in Carolina Con 2024. Through my experience in cybersecurity and CTF competitions, 
+             I’ve developed a deep interest in reverse engineering, binary analysis, and penetration testing. These avenues allow me to leverage my understanding of low-level
+             programming languages to manipulate a program into unexpected behaviour.
+ 
         </p>
-    <div>
+ 
+        <p>
+            Beyond competitions, I’ve also developed coding <a class="p-link" href="{% url "projects" %}">projects</a> that are both practical and personally meaningful,
+            focusing on solutions that improve my workflow or address real-world problems.
+        </p>
+
+    <div class="top-padding">
         <h1> Skills </h1>
-        <hr></hr>
+        <hr>
+
+        <h2 class="center-title"> Programming Languages </h2>
+
+        <div class="icons">
+            <div class="skill-card">
+                <div class="card-container">
+
+                    <img class="python-icon" src="/media/python.svg"> 
+                    <img class="java-icon" src="/media/java.svg">
+                    <img class="c-icon" src="/media/c.svg">
+                    <img class="cpp-icon" src="/media/cpp.svg">
+
+                </div>
+            </div>
+        </div>
+        <h2 class="center-title"> Cybersecurity Tools </h2>
+
+        <div class="cards">
+
+            <div class="skill-card">
+                <div class="card-container">
+                    <img class="card-image-ghidra" src="/media/ghidra.png">
+                    <p> A software reverse engineering (SRE) suite of tools developed by NSA's Research Directorate in support of the Cybersecurity mission </p>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-container">
+                    <img class="card-image-wireshark" src="/media/wireshark.png">
+                    <p>
+                        Wireshark is an open-source packet analyzer. It is used for network troubleshooting, analysis, software
+                        and communications protocol development.
+                    </p>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-container">
+                    <img class="card-image-burp" src="/media/burp_suite.png">
+                    <p>
+                        Burp Suite is a proprietary software tool for security assessment and penetration testing of web applications.
+                    </p>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-container">
+                    <img class="card-image-hashcat" src="/media/hashcat.png">
+                    <p>
+                       hashcat is the world's fastest and most advanced password recovery utility,
+                       supporting five unique modes of attack for over 300 highly-optimized hashing algorithms. 
+                    </p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
     </div>
