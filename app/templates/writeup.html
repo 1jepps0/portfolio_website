@@ -3,53 +3,56 @@
 
 {% block content %}
     <div class="small-container">
-         <div class="challenge-info">
-            <h1>
-                {{data.name}}
-            </h1>
+        <div class="center">
+             <div class="challenge-info">
+                <h1>
+                    {{data.name}}
+                </h1>
 
-            <div class="project-card-tags">
-                {% for tag in tags %}
-                    <p class="project-card-tag">
-                        {{tag}}
+                <div class="project-card-tags">
+                    {% for tag in tags %}
+                        <p class="project-card-tag">
+                            {{tag}}
+                        </p>
+                    {% endfor %}
+                </div>
+                
+                <div class="challenge-meta">
+
+                    <div class="meta-component">
+                        <h3 class="meta-header">Competetion</h3>
+                        <i>{{data.competition}}</i>
+                        <br>
+                    </div>
+
+                    <div class="meta-component">
+                        <h3 class="meta-header">Challenge Author</h3> 
+                        <i>{{data.author}}</i>
+                        <br>
+                    </div>
+
+                    <div class="meta-component">
+                        <h3 class="meta-header">Date</h3> 
+                        <i>{{data.date}}</i>
+                        <br>
+                    </div>
+
+
+
+                </div>
+
+                <div class="description">
+                    <p>
+                        <span id="descriptionText">{{data.description}}</span>
                     </p>
-                {% endfor %}
-            </div>
-            
-            <div class="challenge-meta">
-
-                <div class="meta-component">
-                    <h4>Competetion</h4>
-                    <i>{{data.competition}}</i>
                     <br>
+                    <h4> Hints </h4>
+                    {{data.hints}}
                 </div>
 
-                <div class="meta-component">
-                    <h4>Challenge Author</h4> 
-                    <i>{{data.author}}</i>
-                    <br>
-                </div>
-
-                <div class="meta-component">
-                    <h4>Tags</h4> 
-                    <i>{{data.tags}}</i>
-                    <br>
-                </div>
-
-            </div>
-
-                <h1 >Challenge Description</h1>
-            <div class="description">
-                <p>
-                    <span id="descriptionText">{{data.description}}</span>
-                </p>
-                <br>
-                <h4> Hints </h4>
-                {{data.hints}}
             </div>
 
         </div>
-
     <h1>
         Solution
         <hr></hr>

@@ -152,10 +152,10 @@ hr {
 }
 
 .small-container{
-  width: 50%;
-  margin: auto;
-  overflow: hidden;
-  padding: 2rem 0;
+    width: clamp(25rem, 50%, 50rem);
+    margin: auto;
+    margin-top: 1rem;
+    overflow: hidden;
 }
 
 .container{
@@ -319,39 +319,49 @@ hr {
 .challenge-info {
   color: var(color-font);
   border: 1px solid var(--color-light-accent2);
-  border-radius: 20px;
+  border-radius: 10px;
   background: var(--color-main);
   text-align: center;
 
   display: inline-block;
+  width: 100%;
   font-size: 16px;
+  margin-top: 6%;
+  margin-bottom: 6%;
 }
 
 .challenge-meta {
     border: 1px solid var(--color-light-accent2);
-    border-radius: 20px;
-    padding: 1%;
-    margin: 2%;
+    border-radius: 10px;
+    padding: 2%;
+    margin: 3%;
     background: var(--color-dark-accent);
     text-align: center;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .meta-component {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-inline: clamp(1px, 4%, 600px);
+    font-size: 13px;
+}
+
+.meta-header {
+
+    padding: 0%;
+    margin: 0%;
+
 }
 
 .description {
   border: 1px solid var(--color-light-accent2);
-  border-radius: 20px;
+  border-radius: 10px;
   background: var(--color-dark-accent);
   text-align: left;
   padding: 4%;
-  margin: 2%;
+  margin: 3%;
   max-height: 300px;
   overflow: auto;
 }
@@ -757,14 +767,14 @@ textarea{
 
     margin: 1%;
     margin-top: -1%;
-    padding: .8%;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
 
     font-size: 13px;
 
     border: 1px solid var(--color-light-accent2);
-    background-color: var(--color-main);
+    background-color: var(--color-dark-accent);
     border-radius: 20px;
 }
 
