@@ -19,11 +19,13 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+
 }
 pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
+  max-height: 30rem;
 }
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {

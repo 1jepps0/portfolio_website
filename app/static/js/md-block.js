@@ -248,6 +248,12 @@ export class MarkdownBlock extends MarkdownElement {
 
         return `<pre class="language-${language}"><code>${code}</code></pre>`;
       },
+
+      image(href, title, text) {
+          return `
+          <img class="centered-image" src="${href}" alt="${text}" ${title ? `title="${title}"` : ""}>
+        `;
+      },
     },
     MarkdownSpan.renderer,
   );
