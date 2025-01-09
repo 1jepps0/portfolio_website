@@ -40,9 +40,15 @@ def writeups_view(request):
     if selected_category != 'all':
         writeups = writeups.filter(category=selected_category)
 
+    
     # organize writeups based on competition:category
     organized_writeups = defaultdict(lambda: defaultdict(list))
     for writeup in writeups:
+
+        setattr(writeup, "tags", ast.literal_eval(writeup.tags))
+        
+
+        
         organized_writeups[writeup.competition][writeup.category].append(writeup)
 
     # sort the writeups by date so the most recent ones appear on top
@@ -61,8 +67,6 @@ def writeups_view(request):
 
     
 
-
-    # only give the competitions that have the selected category
 
 
     context = {

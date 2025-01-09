@@ -37,7 +37,17 @@ b {
 
 p {
   font-size: 18px;
+transition: all 0.3s ease;
 }
+
+@media (max-width: 1000px) {
+    p{
+        font-size:15px;
+        transition: all 0.3s ease;
+    }
+}
+
+
 
 body {
   line-height: 1.6;
@@ -221,7 +231,6 @@ hr {
     width: clamp(25rem, 60%, 50rem);
     margin: auto;
     margin-top: 1rem;
-    margin-bottom: 1rem;
     overflow: hidden;
 }
 
@@ -369,20 +378,23 @@ hr {
 /* Challenge Information Card */
 
 .challenge-info {
-  color: var(color-font);
-  border: 1px solid var(--color-light-accent2);
-  border-radius: 10px;
-  background: var(--color-main);
-  text-align: center;
+        transition: 0.3s ease-in-out;
+    color: var(--color-font);
+    border: 1px solid var(--color-light-accent2);
+    border-radius: 10px;
+    background: var(--color-main);
+    text-align: center;
 
-  display: inline-block;
-  width: 100%;
-  font-size: 16px;
-  margin-top: 6%;
-  margin-bottom: 6%;
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    padding: 2%;
 }
 
 .challenge-meta {
+        transition: 0.3s ease-in-out;
     border: 1px solid var(--color-light-accent2);
     border-radius: 10px;
     padding: 2%;
@@ -398,13 +410,14 @@ hr {
 .meta-component {
     padding-inline: clamp(1px, 4%, 600px);
     font-size: 13px;
+        transition: 0.3s ease-in-out;
 }
 
 .meta-header {
-
     padding: 0%;
     margin: 0%;
-
+    font-size: 13px;
+        transition: 0.3s ease-in-out;
 }
 
 .description {
@@ -416,6 +429,34 @@ hr {
   margin: 3%;
   max-height: 300px;
   overflow: auto;
+}
+
+    .meta-value {
+        transition: 0.3s ease-in-out;
+        font-size: 12px;
+    }
+@media (max-width: 1000px) {
+    .meta-header {
+        transition: 0.3s ease-in-out;
+        font-size: 9px;
+    }
+
+    .challenge-info {
+        transition: 0.3s ease-in-out;
+        font-size: 12px;
+    }
+
+    .meta-value {
+        transition: 0.3s ease-in-out;
+        font-size: 9px;
+    }
+
+    .project-card-tag{
+        transition: 0.3s ease-in-out;
+
+        font-size: 10px;
+
+    }
 }
 
 /*
@@ -477,6 +518,7 @@ hr {
     color: var(--color-font);
     margin: 5%;
     padding: 4%;
+    margin-inline: 6%;
 
     display: flex;
     justify-content: space-between;
@@ -484,29 +526,32 @@ hr {
 }
 
 .card-image-ghidra{
+    padding: var(--icon-padding);
+
     width: 50%; 
-    height: 50%;
-    padding-right: 4%;
+    height: auto;
 }
 
 .card-image-wireshark{
+    padding: var(--icon-padding);
     width: 55%; 
-    height: 50%;
-    padding-right: 4%;
+    margin: 5%;
+    height: auto;
 }
 
 
 .card-image-burp{
+    padding: var(--icon-padding);
     width: 42%; 
-    height: 50%;
-    padding-right: 4%;
+    height: auto;
+    padding-right: 5%;
 
 }
 
 .card-image-hashcat{
+    padding: var(--icon-padding);
     width: 62%; 
-    height: 50%;
-    padding-right: 4%;
+    height: auto;
 
 }
 
@@ -524,6 +569,7 @@ hr {
     font-size: 30px;
     transition: all 0.3s;
 }
+
 
 .blurb{
     transform: TranslateY(-10px);
@@ -553,9 +599,8 @@ hr {
 
 .contact-icon{
 
-    padding: var(--icon-padding);
     width: 20%; 
-    height: 20%;
+    height: auto;
 
 }
 
@@ -564,8 +609,12 @@ hr {
     border-radius: 20px;
     color: var(--color-font);
     display: flex;
-    margin-top:6%;
+    margin-top:50px;
 
+}
+
+.contact-form {
+    margin-top: 100px;
 }
 
 .contact-group{
@@ -574,11 +623,11 @@ hr {
     border: 1px solid var(--color-light-accent2);
     border-radius: 100px;
     padding:3%;
-    margin: 7%;
     padding-left: 0%;
     padding-right: 0%;
     color: var(--color-font);
     cursor: pointer;
+    margin: 6%;
 
     transition: 0.1s ease-in-out;
 
@@ -598,12 +647,7 @@ hr {
 }
 
 
-.contact-form {
 
-    margin: 2%;
-    margin-top: 4%;
-
-}
 
 input, textarea{
 
@@ -651,6 +695,7 @@ textarea{
     border-radius:5px;
     border:0;
     cursor:pointer;
+
     padding-top:10px;
     padding-bottom:10px;
     transition: all 0.3s;
@@ -789,6 +834,11 @@ textarea{
     transition: 0.2s ease-in-out;
 }
 
+.project-card-header{
+    font-size: 30px;
+    transition: 0.3s ease-in-out;
+}
+
 .project-container:hover > .project-card-tag{
     border-color: var(--color-light-accent);
     transition: 0.2s ease-in-out;
@@ -807,7 +857,7 @@ textarea{
 }
 
 .project-card-tag{
-    transition: 0.2s ease-in-out;
+    transition: 0.3s ease-in-out;
 
     margin: 1%;
     margin-top: -1%;
@@ -820,6 +870,18 @@ textarea{
     border: 1px solid var(--color-light-accent2);
     background-color: var(--color-dark-accent);
     border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+    .project-card-tag{
+        font-size: 10px;
+        transition: 0.3s ease-in-out;
+    }
+    
+    .project-card-header{
+        transition: 0.3s ease-in-out;
+        font-size: 25px;
+    }
 }
 
 /* portfolio project page */
