@@ -46,8 +46,8 @@
                         <span id="descriptionText">{{data.description}}</span>
                     </p>
                     <br>
-                    <h4> Hints </h4>
-                    {{data.hints}}
+                    <h3> Hints </h3>
+                    <span id="hintText"> {{data.hints}} </span>
                 </div>
 
             </div>
@@ -74,12 +74,16 @@
             const element = document.getElementById(elementId);
             const text = element.textContent;
             const regex = /\\n|\\r\\n|\\n\\r|\\r/g;
-            const convertedtext = text.replace(regex, '<br>');
+            convertedtext = text.replace(regex, '<br>');
+            if (elementId == "hintText"){
+                convertedtext = text.replace(regex, "<br><br>");
+            }
             element.innerHTML = convertedtext;
             console.log(text);
         }
 
         convertAndReplaceText('descriptionText');
+        convertAndReplaceText('hintText');
     </script>
 
 {% endblock content %}

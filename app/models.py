@@ -8,8 +8,9 @@ from django.dispatch import receiver
 from django.utils.text import slugify
 
 def writeup_image_upload_path(instance, filename):
-    competition = slugify(instance.writeup.competition)
-    name = slugify(instance.writeup.name)
+    competition = instance.writeup.competition.replace(" ", "%20")
+    name = instance.writeup.name.replace(" ", "%20")
+    print(os.path.join("writeup_images", competition, name, filename))
     return os.path.join("writeup_images", competition, name, filename)
 
 

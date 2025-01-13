@@ -43,12 +43,10 @@ def writeups_view(request):
     
     # organize writeups based on competition:category
     organized_writeups = defaultdict(lambda: defaultdict(list))
+    url_name = ""
     for writeup in writeups:
-
         setattr(writeup, "tags", ast.literal_eval(writeup.tags))
-        
-
-        
+        url_name = slugify(writeup.name).replace("-", "%20")
         organized_writeups[writeup.competition][writeup.category].append(writeup)
 
     # sort the writeups by date so the most recent ones appear on top
