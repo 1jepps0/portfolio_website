@@ -18,6 +18,7 @@ from django.core.mail import send_mail
 from .forms import ContactForm 
 
 import ast
+import os
 
 
 def home_view(request):
@@ -100,12 +101,24 @@ def writeup_view(request, writeup_name):
 
 
 class WriteupUploadAPIView(APIView):
+
+    password = os.getenv("WRITEUP_PASSWORD") 
+
     def post(self, request):
+        sent_password = request.data.get("password")
+
+        if sent_password != self.password:
+            return Response(
+                {"message": "Invalid Password"},
+                status=status.HTTP_403_FORBIDDEN,
+            )
 
         print("Request Data:", request.data)
         print("Request Files:", request.FILES)
 
+
         serializer = CtfWriteupSerializer(data=request.data)
+
 
         if serializer.is_valid():
 
