@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+STATIC_ROOT = "/root/portfolio_website/staticfiles/"
+
 # Application definition
 
 INSTALLED_APPS = [
