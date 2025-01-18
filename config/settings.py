@@ -26,14 +26,14 @@ SECRET_KEY = ***REMOVED***
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jacobepps.tech', 'www.jacobepps.tech', '167.71.189.118']
+ALLOWED_HOSTS = ['jacobepps.com', 'www.jacobepps.com', '167.71.189.118']
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT =  BASE_DIR / 'media'
 
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/var/www/html/static'
 
 # Application definition
 
