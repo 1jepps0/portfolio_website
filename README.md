@@ -4,6 +4,8 @@ This is a portfolio website built to display my coding projects and CTF writeups
 with an about page and contact form. Paired with a custom made Obsidian plugin to make
 writeup creation seamless and easy.
 
+The website is live at [JacobEpps.com](https://www.jacobepps.com)
+
 ## Features
 - About Page
     - Introduction paragraph
