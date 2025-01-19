@@ -146,7 +146,7 @@ def contact_view(request):
             subject = form.cleaned_data["subject"]
             message = form.cleaned_data["message"]
             sender = form.cleaned_data["email"]
-            true_sender = "JacobEppsWebsiteForm@gmail.com"
+            true_sender = os.getenv("EMAIL_USER")
 
             recipients = ["1jepps10@gmail.com"]
 
