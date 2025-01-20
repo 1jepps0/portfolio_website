@@ -12,6 +12,7 @@ The website is live at [JacobEpps.com](https://www.jacobepps.com)
     - Skills and technologies
 - Contact Page
     - A form that automatically sends emails using Gmail SMTP
+    - Protected from bots using Google Recaptcha
 - CTF Writeups Page
     - Collection of CTF writeups organized by competition and category
     - Uses a tree styling
