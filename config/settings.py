@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,10 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# recaptcha info
+RECAPTCHA_REQUIRED_SCORE =0.5 
+RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY") 
+RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
 
 # email stuffs
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
